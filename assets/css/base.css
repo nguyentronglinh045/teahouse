@@ -1,0 +1,122 @@
+:root{
+    --primary-color:#4d8a54;
+    --text-color: #282828;
+    --white-color: #fff;
+    --border-color: #ebebeb;
+    --header-with-search: 45px;
+    --header-with-logo: 120px;
+}
+
+*{
+    box-sizing: inherit;
+    
+}
+/* 1rem = 10px
+    1.2rem = 12px...
+*/
+html {
+    font-size: 62.5%;
+    font-family: "Quicksand",sans-serif;
+    box-sizing: border-box;
+    line-height: 2rem;
+}
+
+
+.icon{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    padding-right: 4px;
+}
+.icon-black{
+    font-size: 1.8rem;
+    color: var(--text-color);
+    padding-right: 4px;
+}
+.icon-green{
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    min-width: 18px;
+}
+.btn{
+    min-width: 270px;
+    height: 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+    background-color: var(--primary-color);
+}
+btn:hover{
+    background-color: var(--text-color);
+}
+.btn-pay{
+    height: 40px;
+    width: 270px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    outline: none;
+    border-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn-pay:hover{
+    background-color: var(--text-color);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color); 
+}
+
+.border-top{
+    border-top: 1px solid var(--border-color);
+}
+.display-0{
+    display:none;
+}
+.pl-24{
+    padding-left: 24px;
+}
+.mt-24{
+    margin-top: 24px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+.mb-40{
+    margin-bottom: 40px;
+}

@@ -820,11 +820,12 @@ li.product-type__item.active>a.product-type__link {
 .border-img {
     border: 1px solid var(--border-color);
     overflow: hidden;
+    position: relative;
 }
 
 .img-thumbnail {
     padding-top: 100%;
-    position: relative;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;

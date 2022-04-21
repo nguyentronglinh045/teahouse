@@ -48,8 +48,9 @@ const listProducts = [
         image: './assets/imgs/12.jpg',
     },
 ];
-const userCart = [];
+const userCart = JSON.parse(localStorage.getItem('userCart')) || [];
 const cartList = document.querySelector(".cart-list")
+renderCart()
 // render sp ra UI
 function renderProduct() {
     const item = listProducts.map(product => {
@@ -93,9 +94,11 @@ function findProductWithId(productId, arr) {
         if (product.id === productId) {
             //thêm vào giỏ hoặc tăng số lượng hàng
             addToCart(product, userCart)
+            updateLocalStorage()
             //update lại số lượng sp
             renderQuantityProduct()
             renderCart() //render lại giỏ hàng
+
         }
     }
 }
@@ -123,7 +126,6 @@ function addToCart(product) {
         userCart.push(product);
         product.quantity = 1;
     }
-
 }
 // render cart
 function renderCart() {
@@ -147,10 +149,10 @@ function renderCart() {
 checkEmptyCart()
 // kiểm tra giỏ hàng có trống hay không
 function checkEmptyCart() {
-    if(userCart.length == 0){
+    if (userCart.length == 0) {
         document.querySelector('.cart-empty').style.display = "block"
         document.querySelector('.header__cart-list-item').style.display = "none"
-    }else{
+    } else {
         document.querySelector('.cart-empty').style.display = "none"
         document.querySelector('.header__cart-list-item').style.display = ""
     }
@@ -167,8 +169,9 @@ function deleteItemInCart() {
             removeItemWithId(itemId)
         }
     }
-    // totalCart()
+    updateLocalStorage()
     renderTotal()
+    //render số lượng Sp
     renderQuantityProduct()
     checkEmptyCart()
 }
@@ -194,6 +197,7 @@ function changeAmountItem() {
             const itemId = Number(inputNode.dataset.id)
             // xử lý thay đổi value theo input
             getAmount(itemId, amountValue)
+            updateLocalStorage()
         }
     }
 }
@@ -204,7 +208,7 @@ function getAmount(itemId, value) {
             item['quantity'] = value;
             // totalCart();
             renderTotal()
-            
+
             return
         }
     }
@@ -218,9 +222,13 @@ function totalCart() {
     // console.log('Tong Tien: ' + total);
     return total
 }
-function renderTotal(){
-    document.querySelector('.total-pay') .innerText = totalCart()+ 'đ'
+function renderTotal() {
+    document.querySelector('.total-pay').innerText = totalCart() + 'đ'
 }
 function renderQuantityProduct() {
     document.querySelector('.header__cart-notice').innerText = userCart.length
+    document.querySelector('.header__cart-notice-mobile').innerText = userCart.length
+}
+function updateLocalStorage() {
+    localStorage.setItem('userCart', JSON.stringify(userCart))
 }

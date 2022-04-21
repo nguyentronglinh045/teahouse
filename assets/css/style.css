@@ -60,17 +60,13 @@ a.nav-item:hover {
 }
 
 .header__cart-notice {
-    border-radius: 50%;
+    border-radius: 100%;
     position: absolute;
-    top: 22px;
+    top: 25px;
     left: 10px;
-    width: 20px;
-    height: 20px;
-    font-size: 1.2rem;
-    line-height: 20px;
     background-color: var(--white-color);
     color: var(--primary-color);
-    text-align: center;
+    padding: 0px 4px;
 }
 
 .nav__form-search {
@@ -169,9 +165,9 @@ a.nav-item:hover {
     position: absolute;
     top: 100%;
     right: 0;
+    display: none;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    display: none;
     animation: fadeIn .5s;
 }
 
@@ -582,7 +578,8 @@ ul.nav__mobile-list>li {
     border-top: 1px solid var(--border-color);
     padding-left: 12px;
 }
-.ul.nav__mobile-list>li a:hover{
+
+.ul.nav__mobile-list>li a:hover {
     color: var(--primary-color);
 }
 
@@ -829,7 +826,7 @@ li.product-type__item.active>a.product-type__link {
 
 .img-thumbnail {
     padding-top: 100%;
-    
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -1004,11 +1001,13 @@ li.product-type__item.active>a.product-type__link {
     color: var(--text-color);
     padding: 0 12px;
 }
-.news-img-thumbnail{
+
+.news-img-thumbnail {
     max-width: 360px;
     height: 324px;
     overflow: hidden;
 }
+
 .top-news .news-img {
     width: 100%;
     height: 100%;
@@ -1028,14 +1027,17 @@ li.product-type__item.active>a.product-type__link {
     -o-transform: scale(1.05);
     transform: scale(1.05);
 }
+
 h3.news-title {
     font-size: 1.7rem;
     font-weight: 600;
     padding-right: 20px;
 }
-h3.news-title:hover{
+
+h3.news-title:hover {
     color: var(--primary-color);
 }
+
 .top-news .news-sub-title {
     font-size: 1.4rem;
     font-weight: 400;
@@ -1046,7 +1048,8 @@ h3.news-title:hover{
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
 }
-.carousel-cell{
+
+.carousel-cell {
     width: 33.333%;
     margin: 0 -10px;
     padding: 0 10px;
@@ -1054,7 +1057,7 @@ h3.news-title:hover{
 
 
 /* footer */
-.footer{
+.footer {
     width: 100%;
     background-image: url('../imgs/bg_footer.jpg');
     background-repeat: no-repeat;
@@ -1062,20 +1065,24 @@ h3.news-title:hover{
     padding: 95px 20px 0 20px;
     margin-top: 70px;
 }
-.footer a{
+
+.footer a {
     text-decoration: none;
 
 }
-.footer .logo{
+
+.footer .logo {
     width: 100%;
     height: 93px;
 }
-.footer .footer-text{
+
+.footer .footer-text {
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--white-color)
 }
-.footer .list-social a{
+
+.footer .list-social a {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -1085,13 +1092,16 @@ h3.news-title:hover{
     line-height: 30px;
     text-align: center;
 }
-.footer .list-social a i{
+
+.footer .list-social a i {
     margin-top: 6px;
 }
-.footer .list-social a:hover{
+
+.footer .list-social a:hover {
     background-color: var(--white-color);
 }
-.footer .footer-title{
+
+.footer .footer-title {
     font-size: 2rem;
     color: var(--primary-color);
     font-weight: 700;
@@ -1100,31 +1110,36 @@ h3.news-title:hover{
 }
 
 .footer .adress,
-.footer .hotline{
+.footer .hotline {
     display: flex;
 }
+
 .footer .adress .footer-text,
-.footer .hotline .footer-text{
+.footer .hotline .footer-text {
     margin-left: 16px;
     line-height: 1.7;
 }
+
 .footer .adress i,
-.footer .hotline i{
+.footer .hotline i {
     padding-top: 4px;
 }
-.footer .hotline .footer-text a{
+
+.footer .hotline .footer-text a {
     text-decoration: none;
     color: var(--white-color);
 }
-.footer .hotline .footer-text a:hover{
+
+.footer .hotline .footer-text a:hover {
     color: var(--primary-color);
 }
 
-.footer .subscribe{
+.footer .subscribe {
     display: flex;
     position: relative;
 }
-.footer .subscribe .subscribe-input-email{
+
+.footer .subscribe .subscribe-input-email {
     display: block;
     width: 95%;
     height: 60px;
@@ -1136,7 +1151,8 @@ h3.news-title:hover{
     border: none;
     outline: none;
 }
-.footer .subscribe .subscribe-btn{
+
+.footer .subscribe .subscribe-btn {
     display: block;
     height: 60px;
     font-size: 1.5rem;
@@ -1151,24 +1167,26 @@ h3.news-title:hover{
     border: none;
     outline: none;
 }
-.footer .subscribe .subscribe-btn:hover{
+
+.footer .subscribe .subscribe-btn:hover {
     background-color: var(--text-color);
 }
 
-.border-footer{
+.border-footer {
     border-bottom: 1px solid var(--border-color);
     padding-top: 60px;
 }
 
-.footer-copyright{
+.footer-copyright {
     font-size: 1.5rem;
     line-height: 24px;
     color: var(--white-color);
     display: flex;
-    justify-content:center;
+    justify-content: center;
     margin: 20px 0;
 }
-.footer-copyright a{
+
+.footer-copyright a {
     color: var(--primary-color);
     text-decoration: none;
 }

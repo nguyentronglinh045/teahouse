@@ -1,4 +1,4 @@
-const listProducts = [
+const listProductTea = [
     {
         id: 1,
         name: 'Trà phúc bồn tử',
@@ -48,15 +48,71 @@ const listProducts = [
         image: './assets/imgs/12.jpg',
     },
 ];
+const listProductSmoothies = [
+    {
+        id: 10,
+        name: 'Smoothies',
+        price: 50000,
+        image: './assets/imgs/sm1.jpg',
+    },
+    {
+        id: 11,
+        name: 'Smoothies',
+        price: 35000,
+        image: './assets/imgs/sm2.jpg',
+    },
+    {
+        id: 12,
+        name: 'Smoothies',
+        price: 45000,
+        image: './assets/imgs/sm3.jpg',
+    },
+    {
+        id: 13,
+        name: 'Smoothies',
+        price: 40000,
+        image: './assets/imgs/sm4.jpg',
+    },
+    
+];
+const listProductCake = [
+    {
+        id: 15,
+        name: 'Cake',
+        price: 50000,
+        image: './assets/imgs/cake17.jpg',
+    },
+    {
+        id: 16,
+        name: 'Cake',
+        price: 35000,
+        image: './assets/imgs/cake18.jpg',
+    },
+    {
+        id: 17,
+        name: 'Cake',
+        price: 45000,
+        image: './assets/imgs/cake19.jpg',
+    },
+    {
+        id: 18,
+        name: 'Cake',
+        price: 40000,
+        image: './assets/imgs/cake20.jpg',
+    },
+    
+];
 const userCart = JSON.parse(localStorage.getItem('userCart')) || [];
 const cartList = document.querySelector(".cart-list")
 renderCart()
+// mảng bao gồm tất cả sp
+const allProducts = [...listProductTea,...listProductSmoothies,...listProductCake]
 // render sp ra UI
-function renderProduct() {
-    const item = listProducts.map(product => {
+function renderProduct(listProduct) {
+    const item = listProduct.map(product => {
         return (`
                 <div class="col l-3 m-4 c-6 product" data-id="${product.id}">
-                    <a href="#" class="product-thumbnail">
+                    <div class="product-thumbnail">
                         <div class="border-img">
                             <div class="img-thumbnail"
                                 style="background-image: url('${product.image}');">
@@ -67,25 +123,28 @@ function renderProduct() {
                         <p class="item-price">
                             Giá: <b>${product.price}đ</b>
                         </p>
-                    </a>
+                    </div>
                 </div>
         `)
     })
     document.querySelector('.list-of-product').innerHTML = item.join('')
 }
-renderProduct()
+// render sp lần đầu
+renderProduct(listProductTea)
+getProductById()
 renderQuantityProduct()
+//lấy id của sp khi click vào nút thêm vào giỏ hàng
 function getProductById() {
-    const buyBtns = document.querySelectorAll('.add-to-cart-btn');
+    const buyBtns = document.querySelector('.list-of-product').querySelectorAll('.add-to-cart-btn');
     for (const buyBtn of buyBtns) {
         buyBtn.onclick = function (e) {
-            buyBtnNode = e.target.closest('.product');
-            productId = Number(buyBtnNode.dataset.id)
-            findProductWithId(productId, listProducts)
+            const buyBtnNode = e.target.closest('.product');
+            const productId = Number(buyBtnNode.dataset.id)
+            //truyền vào 1 mảng chứa các mảng ds sản phẩm (Spread nối mảng)
+            findProductWithId(productId, allProducts)
         }
     }
 }
-getProductById()
 //tìm sản phẩm có id trùng và đưa vào giỏ (userCart)
 function findProductWithId(productId, arr) {
     //tìm trong ds sản phẩm
@@ -98,7 +157,7 @@ function findProductWithId(productId, arr) {
             //update lại số lượng sp
             renderQuantityProduct()
             renderCart() //render lại giỏ hàng
-
+            
         }
     }
 }
@@ -149,10 +208,10 @@ function renderCart() {
 checkEmptyCart()
 // kiểm tra giỏ hàng có trống hay không
 function checkEmptyCart() {
-    if (userCart.length == 0) {
+    if(userCart.length == 0){
         document.querySelector('.cart-empty').style.display = "block"
         document.querySelector('.header__cart-list-item').style.display = "none"
-    } else {
+    }else{
         document.querySelector('.cart-empty').style.display = "none"
         document.querySelector('.header__cart-list-item').style.display = ""
     }
@@ -208,7 +267,7 @@ function getAmount(itemId, value) {
             item['quantity'] = value;
             // totalCart();
             renderTotal()
-
+            
             return
         }
     }
@@ -222,13 +281,38 @@ function totalCart() {
     // console.log('Tong Tien: ' + total);
     return total
 }
-function renderTotal() {
-    document.querySelector('.total-pay').innerText = totalCart() + 'đ'
+function renderTotal(){
+    document.querySelector('.total-pay') .innerText = totalCart()+ 'đ'
 }
 function renderQuantityProduct() {
     document.querySelector('.header__cart-notice').innerText = userCart.length
     document.querySelector('.header__cart-notice-mobile').innerText = userCart.length
 }
-function updateLocalStorage() {
+function updateLocalStorage(){
     localStorage.setItem('userCart', JSON.stringify(userCart))
 }
+
+//tabs product types active when click
+const productTypesList = document.querySelector('.product-type__list')
+const productTypes = productTypesList.querySelectorAll('.product-type__item')
+productTypes.forEach(productType => {
+    productType.onclick = function () {
+        
+        const typeOfProduct = this.getAttribute('productType') //lấy giá trị của attribute productType 
+        productTypesList.querySelector('.product-type__item.active').classList.remove('active')
+        this.classList.add('active')
+        // lấy loại sp đã chọn và render theo mảng riêng
+        if (typeOfProduct === 'tea' || typeOfProduct === 'hotTea') {
+            renderProduct(listProductTea)
+            getProductById()
+        } else if (typeOfProduct === 'smoothies' ){
+            renderProduct(listProductSmoothies)
+            getProductById()
+        }else if(typeOfProduct === 'cake'){
+            renderProduct(listProductCake)
+            getProductById()
+        }
+        // có thể thêm 
+    }
+    
+});

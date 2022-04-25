@@ -2,560 +2,564 @@
     -Dự án bắt đầu từ ngày 15/03/2021 vào buổi chiều
     -Hoàn thành giao diện cứng 12h ngày 25/03/2021
  -->
- <!DOCTYPE html>
- <html lang="en">
- 
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Tea House</title>
-     <!--  -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-     <script src="https://kit.fontawesome.com/83dafc3676.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="./assets/css/base.css">
-     <link rel="stylesheet" href="./assets/css/style.css">
-     <link rel="stylesheet" href="./assets/css/grid.css">
-     <link rel="stylesheet" href="./assets/css/responsive.css">
-     <link href="http://fonts.cdnfonts.com/css/quicksand?styles=737" rel="stylesheet">
-     <!-- flickity -->
-     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
- </head>
- 
- <body>
-     <div class="app">
-         <header class="top-header hide-on-mobile">
-             <div class="grid wide">
- 
-                 <nav class="header__nav-search ">
-                     <div class="contact">
-                         <i class="icon fa-solid fa-phone"></i>
-                         <span class="">Hotline:</span>
-                         <a class="contact-phone" href="tel:19006750">1900 6750</a>
-                     </div>
- 
-                     <div class="header__nav-list">
-                         <a class="nav-item item-hover">
-                             <i class="icon fa-solid fa-magnifying-glass"></i>
-                             Tìm kiếm
-                             <form action="" method="" id="nav__form-search" class="nav__form-search active">
-                                 <input type="text" class="search-input" name="search" id="" placeholder="Tìm kiếm...">
-                                 <button class="search-btn" type="submit">
-                                     <i class="icon-black  fa-solid fa-magnifying-glass"></i>
-                                 </button>
-                             </form>
-                         </a>
-                         <a class="nav-item nav-user-menu">
-                             <i class="icon fa-regular fa-user"></i>
-                             Tài khoản
-                             <ul class="user-option">
-                                 <li class="item-option">Đăng nhập</li>
-                                 <li class="item-option">Đăng ký</li>
-                             </ul>
-                         </a>
-                         <a class="nav-item nav-cart">
-                             <i class="icon fa-solid fa-cart-shopping"></i>
-                             <span class="header__cart-notice"></span>
-                             Giỏ hàng
- 
-                             <!-- Cart Layout -->
-                             <div class="header__cart-list">
-                                 <!-- cart is empty -->
-                                 <span class="cart-empty">Không có sản phẩm nào</span>
- 
-                                 <!-- cart list item -->
-                                 <div class="header__cart-list-item">
-                                     <ul class="cart-list">
-                                         <!-- render  -->
-                                     </ul>
-                                     <div class="total-money-wrap">
-                                         <div class="total-money">
-                                             <span class="text">Tổng cộng:</span>
-                                             <span class="total-pay">0 đ</span>
-                                         </div>
-                                         <div class="pay">
-                                             <button class="btn-pay">Tới giỏ hàng và thanh toán</button>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </a>
-                     </div>
- 
-                 </nav>
-             </div>
-         </header>
- 
-         <header class="main-header hide-on-mobile">
-             <div class="">
-                 <nav class="header-with-logo">
-                     <div class="left-header">
-                         <ul class="list-menu">
-                             <li class="menu-item active"><a href="#">Trang chủ</a> </li>
-                             <li class="menu-item"><a href="#">Giới thiệu</a> </li>
-                             <li class="menu-item list-item">
-                                 <a href="#">Sản phẩm</a>
-                                 <i class="icon-black fa fa-caret-down"></i>
-                                 <div class="list-product">
-                                     <ul class="list-product-item">
-                                         <li class="product-item"><a href="#">Cà phê</a></li>
-                                         <li class="product-item"><a href="#">Bánh ngọt</a></li>
-                                         <li class="product-item"><a href="#">Trà hoa quả</a></li>
-                                         <li class="product-item"><a href="#">Trà sữa</a></li>
-                                     </ul>
-                                 </div>
-                             </li>
-                         </ul>
-                     </div>
- 
-                     <div class="logo">
-                         <img src="./assets/imgs/logo.png" alt="logo" srcset="">
-                     </div>
-                     <div class="right-header">
-                         <ul class="list-menu">
-                             <li class="menu-item"><a href="#">Tin tức</a> </li>
-                             <li class="menu-item"><a href="#">Thực đơn</a> </li>
-                             <li class="menu-item"><a href="#">Liên hệ</a> </li>
-                         </ul>
-                     </div>
-                 </nav>
-             </div>
-         </header>
-         <div class="mobile-header hide-on-pc-tablet">
-             <!--  -->
-             <input type="checkbox" hidden class="nav__input" name="" id="nav-input">
-             <label for="nav-input" class="nav__overlay"></label>
-             <div class="nav-mobile">
-                 <label for="nav-input" class="nav__bars-btn">
-                     <i class="icon fa-solid fa-bars "></i>
-                 </label>
- 
-                 <div class="logo">
-                     <img src="./assets/imgs/logo_mobi.png" alt="logo" srcset="">
-                 </div>
-                 <div class="mobile-cart">
-                     <i class="icon fa-solid fa-cart-shopping"></i>
-                     <span class="header__cart-notice-mobile"></span>
-                 </div>
-             </div>
-             <div class="search-on-mobile">
-                 <input type="text" class="search-input-mobile" placeholder="Tìm sản phẩm bạn mong muốn...">
-                 <button class="search-btn-mobile"><i class="icon-black  fa-solid fa-magnifying-glass"></i></button>
-             </div>
-             <nav class="nav__mobile">
-                 <div class="user-login-mobile">
-                     <span><a href="#" class="nav__mobile-user-link">Đăng nhập</a></span>
-                     <span style="font-size: 1.6rem;">/</span>
-                     <span><a href="#" class="nav__mobile-user-link">Đăng ký</a></span>
-                 </div>
-                 <ul class="nav__mobile-list">
-                     <li><a href="#" class="nav__mobile-link">Trang chủ</a></li>
-                     <li><a href="#" class="nav__mobile-link">Giới thiệu</a></li>
-                     <li class="product-wrapper">
-                         <a href="#" class="nav__mobile-link">Sản phẩm</a>
-                         <label for="nav-list-product" class="plus-icon">
-                             <i class="icon-black fa-solid fa-plus"></i>
-                         </label>
-                     </li>
-                     <input type="checkbox" hidden class="nav__input-product-hidden" name="" id="nav-list-product">
-                     <ul class="nav__list-item-mobile ">
-                         <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Cà phê</a></li>
-                         <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Bánh ngọt</a></li>
-                         <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Trà hoa quả</a></li>
-                         <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Trà sữa</a></li>
-                     </ul>
-                     <li><a href="#" class="nav__mobile-link">Tin tức</a></li>
-                     <li><a href="#" class="nav__mobile-link">Liên hệ</a></li>
-                 </ul>
- 
-             </nav>
-         </div>
- 
-         <div class="slider"></div>
-         <div class="app__container">
-             <!-- Danh mục sản phẩm -->
-             <div class="list-product-items">
-                 <div class="grid wide">
-                     <div class="top-title">
-                         <span>Danh mục sản phẩm</span>
-                     </div>
-                     <div class="row mt-24">
-                         <div class="col l-3 m-6 c-6">
-                             <div class="home-product-item-type">
-                                 <div class="home-product-item-type-info">
-                                     <img src="./assets/imgs/sec_category_1.jpg" alt="trà nóng" srcset="">
-                                 </div>
-                                 <span class="product-title">Trà nóng</span>
-                             </div>
-                         </div>
-                         <div class="col l-3 m-6 c-6">
-                             <div class="home-product-item-type">
-                                 <div class="home-product-item-type-info">
-                                     <img src="./assets/imgs/sec_category_2.jpg" alt="trà nóng" srcset="">
-                                 </div>
-                                 <span class="product-title">Trà hoa quả</span>
-                             </div>
-                         </div>
-                         <div class="col l-3 m-6 c-6">
-                             <div class="home-product-item-type">
-                                 <div class="home-product-item-type-info">
-                                     <img src="./assets/imgs/sec_category_3.jpg" alt="trà nóng" srcset="">
-                                 </div>
-                                 <span class="product-title">Smoothies</span>
-                             </div>
-                         </div>
-                         <div class="col l-3 m-6 c-6">
-                             <div class="home-product-item-type">
-                                 <div class="home-product-item-type-info">
-                                     <img src="./assets/imgs/sec_category_4.jpg" alt="trà nóng" srcset="">
-                                 </div>
-                                 <span class="product-title">Bánh ngọt</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <!-- Tại sao chọn chúng tôi -->
-             <div class="why-choose">
-                 <div class="grid wide">
-                     <div class="row">
- 
-                         <div class="col l-6 m-8 c-12">
-                             <div class="top-title">
-                                 <span>Tại sao chọn chúng tôi</span>
-                             </div>
-                             <p class="sub-top-title">
-                                 Với những nghệ nhân rang tâm huyết và đội ngũ tài năng
-                                 cùng những câu chuyện trà đầy cảm hứng, ngôi nhà Tea House
-                                 là không gian dành riêng cho những ai trót yêu say đắm hương
-                                 vị của những lá trà tuyệt hảo.
-                             </p>
-                             <div class="group-list-reason">
-                                 <ul>
-                                     <li>
-                                         <span class="icon-why">
-                                             <img src="./assets/imgs/icon_why_1.png" alt="" srcset="">
-                                         </span>
-                                         <div class="reason-title">
-                                             <h3>Giá cả phải chăng</h3>
-                                             <span class="sub-title">Cam kết chỉ cung cấp cà phê có nguồn gốc được kiểm
-                                                 soát chất lượng</span>
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <span class="icon-why">
-                                             <img src="./assets/imgs/icon_why_2.png" alt="" srcset="">
-                                         </span>
-                                         <div class="reason-title">
-                                             <h3>Hương vị tuyệt hảo</h3>
-                                             <span class="sub-title">Những đọt trà được lựa chọn cẩn thận ngay từ lúc
-                                                 đang ngâm mình trong sương</span>
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <span class="icon-why">
-                                             <img src="./assets/imgs/icon_why_3.png" alt="" srcset="">
-                                         </span>
-                                         <div class="reason-title">
-                                             <h3>Sản phẩm tự nhiên</h3>
-                                             <span class="sub-title">Cam kết chỉ cung cấp lá trà có nguồn gốc được kiểm
-                                                 soát chất lượng chặt</span>
-                                         </div>
-                                     </li>
-                                 </ul>
-                             </div>
-                         </div>
- 
-                         <div class="col l-6 m-4 c-12"></div>
-                     </div>
-                 </div>
-             </div>
- 
-             <!-- Menu today -->
-             <div class="menu-today">
-                 <div class="top-title">
-                     <span>Menu hôm nay</span>
-                 </div>
-                 <div class="row mt-40 mb-40">
-                     <div class="col l-12 m-12 c-12">
-                         <ul class="product-type__list">
-                             <li class="product-type__item active" productType="hotTea">
-                                 <div  class="product-type__link" >Trà nóng</div>
-                             </li>
-                             <li class="product-type__item" productType="tea">
-                                 <div  class="product-type__link" >Trà hoa quả</div>
-                             </li>
-                             <li class="product-type__item" productType="smoothies">
-                                 <div  class="product-type__link" >Smoothies</div>
-                             </li>
-                             <li class="product-type__item" productType="cake">
-                                 <div  class="product-type__link" >Bánh ngọt</div>
-                             </li>
-                         </ul>
-                     </div>
-                 </div>
-                 <!-- list product items -->
-                 <div class="grid wide">
-                     <div class="row list-of-product">
-                         <!-- product item -->
-                         
-                            
-                         
-                     </div>
-                 </div>
-             </div>
-             <div class="time-open">
-                 <div class="grid wide">
-                     <div class="row">
-                         <div class="col l-7 m-12 c-12">
-                             <div class="left-module">
-                                 <div class="top-title">
-                                     <span>Thời gian mở cửa</span>
-                                 </div>
-                                 <div class="time-open__sub">
-                                     <span>
-                                         “Cà phê nhé" - Một lời hẹn rất riêng của người Việt.
-                                         Một lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia
-                                         câu chuyện của riêng mình.
-                                     </span>
-                                 </div>
-                                 <div class="time-open-detail">
-                                     <p>T2 - T6: 8h30 - 21h30</p>
-                                     <p>T7 - CN: 8h00 - 22h00</p>
-                                 </div>
-                                 <a href="#" class="book-now">Đặt bàn ngay</a>
- 
-                             </div>
-                         </div>
-                         <div class="col l-5 m-0 c-0 bg-right">
- 
-                         </div>
-                     </div>
-                 </div>
-             </div>
- 
-             <div class="top-news">
-                 <div class="top-title">
-                     <span>Tin tức nổi bật</span>
-                 </div>
-                 <div class="grid wide">
-                     <div class=" scroll"
-                         data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false }'>
-                         <div class="carousel-cell">
-                             <a href="#" class="news">
-                                 <div class="news-img-thumbnail">
-                                     <div class="news-img" style="background-image: url('./assets/imgs/tin1.jpg');">
-                                     </div>
-                                 </div>
-                                 <h3 class="news-title">Nhâm nhi cà phê bao lâu nhưng bạn tận mắt nhìn kỹ xem hạt cà phê
-                                     chưa?</h3>
-                                 <div class="news-sub-title">
-                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
-                                         iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
-                                         dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
-                                         Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
-                                         quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
-                                         itaque ut perferendis omnis animi architecto.
-                                         Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
-                                         recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
-                                         asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
-                                         Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
-                                         veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
-                                         voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
-                                         eligendi nesciunt impedit! Quia?
-                                     </span>
-                                 </div>
-                             </a>
-                         </div>
-                         <div class="carousel-cell">
-                             <a href="#" class="news">
-                                 <div class="news-img-thumbnail">
-                                     <div class="news-img" style="background-image: url('./assets/imgs/tin2.jpg');">
-                                     </div>
-                                 </div>
-                                 <h3 class="news-title">Uống từ 1-4 tách cà phê mỗi ngày giúp bệnh nhân ung thư kéo dài
-                                     sự sống</h3>
-                                 <div class="news-sub-title">
-                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
-                                         iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
-                                         dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
-                                         Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
-                                         quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
-                                         itaque ut perferendis omnis animi architecto.
-                                         Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
-                                         recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
-                                         asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
-                                         Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
-                                         veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
-                                         voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
-                                         eligendi nesciunt impedit! Quia?
-                                     </span>
-                                 </div>
-                             </a>
-                         </div>
-                         <div class="carousel-cell">
-                             <a href="#" class="news">
-                                 <div class="news-img-thumbnail">
-                                     <div class="news-img" style="background-image: url('./assets/imgs/tin3.jpg');">
-                                     </div>
-                                 </div>
-                                 <h3 class="news-title">Dùng cốc giấy đựng cà phê nóng, thứ bạn uống đầy ắp những thứ
-                                     đáng sợ này</h3>
-                                 <div class="news-sub-title">
-                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
-                                         iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
-                                         dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
-                                         Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
-                                         quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
-                                         itaque ut perferendis omnis animi architecto.
-                                         Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
-                                         recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
-                                         asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
-                                         Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
-                                         veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
-                                         voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
-                                         eligendi nesciunt impedit! Quia?
-                                     </span>
-                                 </div>
-                             </a>
-                         </div>
-                         <div class="carousel-cell">
-                             <a href="#" class="news">
-                                 <div class="news-img-thumbnail">
-                                     <div class="news-img" style="background-image: url('./assets/imgs/tin4.jpg');">
-                                     </div>
-                                 </div>
-                                 <h3 class="news-title">Uống trà có mất ngủ không?</h3>
-                                 <div class="news-sub-title">
-                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
-                                         iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
-                                         dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
-                                         Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
-                                         quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
-                                         itaque ut perferendis omnis animi architecto.
-                                         Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
-                                         recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
-                                         asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
-                                         Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
-                                         veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
-                                         voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
-                                         eligendi nesciunt impedit! Quia?
-                                     </span>
-                                 </div>
-                             </a>
-                         </div>
-                         <div class="carousel-cell">
-                             <a href="#" class="news">
-                                 <div class="news-img-thumbnail">
-                                     <div class="news-img" style="background-image: url('./assets/imgs/tin5.jpg');">
-                                     </div>
-                                 </div>
-                                 <h3 class="news-title">Cà phê hay thể dục: Lựa chọn nào giúp đánh bại cơn buồn ngủ tốt
-                                     hơn?</h3>
-                                 <div class="news-sub-title">
-                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
-                                         iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
-                                         dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
-                                         Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
-                                         quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
-                                         itaque ut perferendis omnis animi architecto.
-                                         Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
-                                         recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
-                                         asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
-                                         Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
-                                         veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
-                                         voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
-                                         eligendi nesciunt impedit! Quia?
-                                     </span>
-                                 </div>
-                             </a>
-                         </div>
- 
-                     </div>
-                 </div>
-             </div>
- 
-         </div>
-         <footer class="footer">
-             <div class="grid wide">
-                 <div class="row">
-                     <div class="col l-4 m-12 c-12">
-                         <div class="logo">
-                             <a href="#">
-                                 <img src="./assets/imgs/logo.png" alt="logo" srcset="">
-                             </a>
-                         </div>
-                         <div class="footer-text">
-                             <p>Chúng tôi mong muốn Tea House sẽ trở thành “Nhà Trà",
-                                 nơi mọi người xích lại gần nhau và tìm thấy niềm vui,
-                                 sự sẻ chia thân tình bên những tách cà phê đượm hương, chất lượng.
-                             </p>
-                         </div>
-                         <div class="list-social">
-                             <a href="#">
-                                 <i class="icon-green fa-brands fa-twitter"></i>
-                             </a>
-                             <a href="#">
-                                 <i class="icon-green fa-brands fa-facebook-f"></i>
-                             </a>
-                             <a href="#">
-                                 <i class="icon-green fa-brands fa-pinterest-p"></i>
-                             </a>
-                             <a href="#">
-                                 <i class="icon-green fa-brands fa-google-plus-g"></i>
-                             </a>
-                             <a href="#">
-                                 <i class="icon-green fa-brands fa-youtube"></i>
-                             </a>
-                         </div>
-                     </div>
-                     <div class="col l-4 m-6 c-12">
-                         <div class="footer-title">
-                             <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
-                         </div>
-                         <div class="adress mb-30">
-                             <i class="icon-green fa-solid fa-location-dot"></i>
-                             <span class="footer-text">
-                                 Địa chỉ: Tâng 6 toà nhà Ladeco, 266 Đội Cấn, phường Liễu Giai, Hà Nội, Vietnam
-                             </span>
-                         </div>
-                         <div class="hotline">
-                             <i class="icon-green fa-solid fa-phone"></i>
-                             <span class="footer-text">
-                                 Hotline đặt bàn: <span><a href="tel:1900 6750">1900 6750</a></span> <br>
-                                 Hotline giao hàng: <span><a href="tel:1900 6750">1900 6750</a></span>
-                             </span>
-                         </div>
-                     </div>
-                     <div class="col l-4 m-6 c-12">
-                         <div class="footer-title">
-                             <h3>ĐĂNG KÝ NHẬN KHUYẾN MÃI</h3>
-                         </div>
-                         <span class="footer-text ">
-                             Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn
-                         </span>
-                         <div class="subscribe mt-40">
-                             <input type="text" class="subscribe-input-email" placeholder="Email của bạn">
-                             <button class="subscribe-btn">ĐĂNG KÝ</button>
-                         </div>
-                     </div>
-                     <div class="col l-12 m-12 c-12">
-                         <div class="border-footer"></div>
-                     </div>
-                     <div class="col l-12 m-12 c-12">
-                         <div class="footer-copyright">
-                             <span>© Bản quyền thuộc về Cafein Team</span>
-                             <span class="hide-on-mobile"> | </span>
-                             <span>Cung cấp bởi <a href="#">Sapo</a></span>
-                         </div>
- 
-                     </div>
-                 </div>
-             </div>
-         </footer>
-     </div>
-     <script src="./assets/js/main.js"></script>
- </body>
- 
- </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea House</title>
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="https://kit.fontawesome.com/83dafc3676.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link href="http://fonts.cdnfonts.com/css/quicksand?styles=737" rel="stylesheet">
+    <!-- flickity -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="top-header hide-on-mobile">
+            <div class="grid wide">
+
+                <nav class="header__nav-search ">
+                    <div class="contact">
+                        <i class="icon fa-solid fa-phone"></i>
+                        <span class="">Hotline:</span>
+                        <a class="contact-phone" href="tel:19006750">1900 6750</a>
+                    </div>
+
+                    <div class="header__nav-list">
+                        <a class="nav-item item-hover">
+                            <i class="icon fa-solid fa-magnifying-glass"></i>
+                            Tìm kiếm
+                            <form action="" method="" id="nav__form-search" class="nav__form-search active">
+                                <input type="text" class="search-input" name="search" id="" placeholder="Tìm kiếm...">
+                                <button class="search-btn" type="submit">
+                                    <i class="icon-black  fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </a>
+                        <a class="nav-item nav-user-menu">
+                            <i class="icon fa-regular fa-user"></i>
+                            Tài khoản
+                            <ul class="user-option">
+                                <li class="item-option">Đăng nhập</li>
+                                <li class="item-option">Đăng ký</li>
+                            </ul>
+                        </a>
+                        <a class="nav-item nav-cart">
+                            <i class="icon fa-solid fa-cart-shopping"></i>
+                            <span class="header__cart-notice"></span>
+                            Giỏ hàng
+
+                            <!-- Cart Layout -->
+                            <div class="header__cart-list">
+                                <!-- cart is empty -->
+                                <span class="cart-empty">Không có sản phẩm nào</span>
+
+                                <!-- cart list item -->
+                                <div class="header__cart-list-item">
+                                    <ul class="cart-list">
+                                        <!-- render  -->
+                                    </ul>
+                                    <div class="total-money-wrap">
+                                        <div class="total-money">
+                                            <span class="text">Tổng cộng:</span>
+                                            <span class="total-pay">0 đ</span>
+                                        </div>
+                                        <div class="pay">
+                                            <button class="btn-pay">Tới giỏ hàng và thanh toán</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+
+        <header class="main-header hide-on-mobile">
+            <div class="">
+                <nav class="header-with-logo">
+                    <div class="left-header">
+                        <ul class="list-menu">
+                            <li class="menu-item active"><a href="#">Trang chủ</a> </li>
+                            <li class="menu-item"><a href="#">Giới thiệu</a> </li>
+                            <li class="menu-item list-item">
+                                <a href="#">Sản phẩm</a>
+                                <i class="icon-black fa fa-caret-down"></i>
+                                <div class="list-product">
+                                    <ul class="list-product-item">
+                                        <li class="product-item"><a href="#">Cà phê</a></li>
+                                        <li class="product-item"><a href="#">Bánh ngọt</a></li>
+                                        <li class="product-item"><a href="#">Trà hoa quả</a></li>
+                                        <li class="product-item"><a href="#">Trà sữa</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="logo">
+                        <img src="./assets/imgs/logo.png" alt="logo" srcset="">
+                    </div>
+                    <div class="right-header">
+                        <ul class="list-menu">
+                            <li class="menu-item"><a href="#">Tin tức</a> </li>
+                            <li class="menu-item"><a href="#">Thực đơn</a> </li>
+                            <li class="menu-item"><a href="#">Liên hệ</a> </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="mobile-header hide-on-pc-tablet">
+            <!--  -->
+            <input type="checkbox" hidden class="nav__input" name="" id="nav-input">
+            <label for="nav-input" class="nav__overlay"></label>
+            <div class="nav-mobile">
+                <label for="nav-input" class="nav__bars-btn">
+                    <i class="icon fa-solid fa-bars "></i>
+                </label>
+
+                <div class="logo">
+                    <img src="./assets/imgs/logo_mobi.png" alt="logo" srcset="">
+                </div>
+                <div class="mobile-cart">
+                    <i class="icon fa-solid fa-cart-shopping"></i>
+                    <span class="header__cart-notice-mobile"></span>
+                </div>
+            </div>
+            <div class="search-on-mobile">
+                <input type="text" class="search-input-mobile" placeholder="Tìm sản phẩm bạn mong muốn...">
+                <button class="search-btn-mobile"><i class="icon-black  fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <nav class="nav__mobile">
+                <div class="user-login-mobile">
+                    <span><a href="#" class="nav__mobile-user-link">Đăng nhập</a></span>
+                    <span style="font-size: 1.6rem;">/</span>
+                    <span><a href="#" class="nav__mobile-user-link">Đăng ký</a></span>
+                </div>
+                <ul class="nav__mobile-list">
+                    <li><a href="#" class="nav__mobile-link">Trang chủ</a></li>
+                    <li><a href="#" class="nav__mobile-link">Giới thiệu</a></li>
+                    <li class="product-wrapper">
+                        <a href="#" class="nav__mobile-link">Sản phẩm</a>
+                        <label for="nav-list-product" class="plus-icon">
+                            <i class="icon-black fa-solid fa-plus"></i>
+                        </label>
+                    </li>
+                    <input type="checkbox" hidden class="nav__input-product-hidden" name="" id="nav-list-product">
+                    <ul class="nav__list-item-mobile ">
+                        <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Cà phê</a></li>
+                        <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Bánh ngọt</a></li>
+                        <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Trà hoa quả</a></li>
+                        <li class="border-top pl-24"><a href="#" class="nav__mobile-link">Trà sữa</a></li>
+                    </ul>
+                    <li><a href="#" class="nav__mobile-link">Tin tức</a></li>
+                    <li><a href="#" class="nav__mobile-link">Liên hệ</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div class="slider"></div>
+        <div class="app__container">
+            <!-- Danh mục sản phẩm -->
+            <div class="list-product-items">
+                <div class="grid wide">
+                    <div class="top-title">
+                        <span>Danh mục sản phẩm</span>
+                    </div>
+                    <div class="row mt-24">
+                        <div class="col l-3 m-6 c-6">
+                            <div class="home-product-item-type">
+                                <div class="home-product-item-type-info">
+                                    <img src="./assets/imgs/sec_category_1.jpg" alt="trà nóng" srcset="">
+                                </div>
+                                <span class="product-title">Trà nóng</span>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-6">
+                            <div class="home-product-item-type">
+                                <div class="home-product-item-type-info">
+                                    <img src="./assets/imgs/sec_category_2.jpg" alt="trà nóng" srcset="">
+                                </div>
+                                <span class="product-title">Trà hoa quả</span>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-6">
+                            <div class="home-product-item-type">
+                                <div class="home-product-item-type-info">
+                                    <img src="./assets/imgs/sec_category_3.jpg" alt="trà nóng" srcset="">
+                                </div>
+                                <span class="product-title">Smoothies</span>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-6">
+                            <div class="home-product-item-type">
+                                <div class="home-product-item-type-info">
+                                    <img src="./assets/imgs/sec_category_4.jpg" alt="trà nóng" srcset="">
+                                </div>
+                                <span class="product-title">Bánh ngọt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tại sao chọn chúng tôi -->
+            <div class="why-choose">
+                <div class="grid wide">
+                    <div class="row">
+
+                        <div class="col l-6 m-8 c-12">
+                            <div class="top-title">
+                                <span>Tại sao chọn chúng tôi</span>
+                            </div>
+                            <p class="sub-top-title">
+                                Với những nghệ nhân rang tâm huyết và đội ngũ tài năng
+                                cùng những câu chuyện trà đầy cảm hứng, ngôi nhà Tea House
+                                là không gian dành riêng cho những ai trót yêu say đắm hương
+                                vị của những lá trà tuyệt hảo.
+                            </p>
+                            <div class="group-list-reason">
+                                <ul>
+                                    <li>
+                                        <span class="icon-why">
+                                            <img src="./assets/imgs/icon_why_1.png" alt="" srcset="">
+                                        </span>
+                                        <div class="reason-title">
+                                            <h3>Giá cả phải chăng</h3>
+                                            <span class="sub-title">Cam kết chỉ cung cấp cà phê có nguồn gốc được kiểm
+                                                soát chất lượng</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="icon-why">
+                                            <img src="./assets/imgs/icon_why_2.png" alt="" srcset="">
+                                        </span>
+                                        <div class="reason-title">
+                                            <h3>Hương vị tuyệt hảo</h3>
+                                            <span class="sub-title">Những đọt trà được lựa chọn cẩn thận ngay từ lúc
+                                                đang ngâm mình trong sương</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="icon-why">
+                                            <img src="./assets/imgs/icon_why_3.png" alt="" srcset="">
+                                        </span>
+                                        <div class="reason-title">
+                                            <h3>Sản phẩm tự nhiên</h3>
+                                            <span class="sub-title">Cam kết chỉ cung cấp lá trà có nguồn gốc được kiểm
+                                                soát chất lượng chặt</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col l-6 m-4 c-12"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu today -->
+            <div class="menu-today">
+                <div class="top-title">
+                    <span>Menu hôm nay</span>
+                </div>
+                <div class="row mt-40 mb-40">
+                    <div class="col l-12 m-12 c-12">
+                        <ul class="product-type__list">
+                            <li class="product-type__item active" productType="hotTea">
+                                <div class="product-type__link">Trà nóng</div>
+                            </li>
+                            <li class="product-type__item" productType="tea">
+                                <div class="product-type__link">Trà hoa quả</div>
+                            </li>
+                            <li class="product-type__item" productType="smoothies">
+                                <div class="product-type__link">Smoothies</div>
+                            </li>
+                            <li class="product-type__item" productType="cake">
+                                <div class="product-type__link">Bánh ngọt</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- list product items -->
+                <div class="grid wide">
+                    <div class="row list-of-product">
+                        <!-- product item -->
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="time-open">
+                <div class="grid wide">
+                    <div class="row">
+                        <div class="col l-7 m-12 c-12">
+                            <div class="left-module">
+                                <div class="top-title">
+                                    <span>Thời gian mở cửa</span>
+                                </div>
+                                <div class="time-open__sub">
+                                    <span>
+                                        “Cà phê nhé" - Một lời hẹn rất riêng của người Việt.
+                                        Một lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia
+                                        câu chuyện của riêng mình.
+                                    </span>
+                                </div>
+                                <div class="time-open-detail">
+                                    <p>T2 - T6: 8h30 - 21h30</p>
+                                    <p>T7 - CN: 8h00 - 22h00</p>
+                                </div>
+                                <a href="#" class="book-now">Đặt bàn ngay</a>
+
+                            </div>
+                        </div>
+                        <div class="col l-5 m-0 c-0 bg-right">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-news">
+                <div class="top-title">
+                    <span>Tin tức nổi bật</span>
+                </div>
+                <div class="grid wide">
+                    <div class=" scroll"
+                        data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false }'>
+                        <div class="carousel-cell">
+                            <a href="#" class="news">
+                                <div class="news-img-thumbnail">
+                                    <div class="news-img" style="background-image: url('./assets/imgs/tin1.jpg');">
+                                    </div>
+                                </div>
+                                <h3 class="news-title">Nhâm nhi cà phê bao lâu nhưng bạn tận mắt nhìn kỹ xem hạt cà phê
+                                    chưa?</h3>
+                                <div class="news-sub-title">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
+                                        iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
+                                        dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
+                                        Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
+                                        quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
+                                        itaque ut perferendis omnis animi architecto.
+                                        Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
+                                        recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
+                                        asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
+                                        Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
+                                        veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
+                                        voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
+                                        eligendi nesciunt impedit! Quia?
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-cell">
+                            <a href="#" class="news">
+                                <div class="news-img-thumbnail">
+                                    <div class="news-img" style="background-image: url('./assets/imgs/tin2.jpg');">
+                                    </div>
+                                </div>
+                                <h3 class="news-title">Uống từ 1-4 tách cà phê mỗi ngày giúp bệnh nhân ung thư kéo dài
+                                    sự sống</h3>
+                                <div class="news-sub-title">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
+                                        iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
+                                        dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
+                                        Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
+                                        quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
+                                        itaque ut perferendis omnis animi architecto.
+                                        Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
+                                        recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
+                                        asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
+                                        Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
+                                        veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
+                                        voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
+                                        eligendi nesciunt impedit! Quia?
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-cell">
+                            <a href="#" class="news">
+                                <div class="news-img-thumbnail">
+                                    <div class="news-img" style="background-image: url('./assets/imgs/tin3.jpg');">
+                                    </div>
+                                </div>
+                                <h3 class="news-title">Dùng cốc giấy đựng cà phê nóng, thứ bạn uống đầy ắp những thứ
+                                    đáng sợ này</h3>
+                                <div class="news-sub-title">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
+                                        iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
+                                        dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
+                                        Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
+                                        quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
+                                        itaque ut perferendis omnis animi architecto.
+                                        Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
+                                        recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
+                                        asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
+                                        Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
+                                        veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
+                                        voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
+                                        eligendi nesciunt impedit! Quia?
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-cell">
+                            <a href="#" class="news">
+                                <div class="news-img-thumbnail">
+                                    <div class="news-img" style="background-image: url('./assets/imgs/tin4.jpg');">
+                                    </div>
+                                </div>
+                                <h3 class="news-title">Uống trà có mất ngủ không?</h3>
+                                <div class="news-sub-title">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
+                                        iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
+                                        dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
+                                        Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
+                                        quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
+                                        itaque ut perferendis omnis animi architecto.
+                                        Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
+                                        recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
+                                        asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
+                                        Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
+                                        veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
+                                        voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
+                                        eligendi nesciunt impedit! Quia?
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-cell">
+                            <a href="#" class="news">
+                                <div class="news-img-thumbnail">
+                                    <div class="news-img" style="background-image: url('./assets/imgs/tin5.jpg');">
+                                    </div>
+                                </div>
+                                <h3 class="news-title">Cà phê hay thể dục: Lựa chọn nào giúp đánh bại cơn buồn ngủ tốt
+                                    hơn?</h3>
+                                <div class="news-sub-title">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates
+                                        iusto, quisquam quasi sed suscipit ex fugit cumque nostrum facilis earum, sunt
+                                        dolorum magnam? Itaque nihil ut deserunt rerum fugiat?
+                                        Natus eum nobis, omnis accusamus atque at, delectus quia voluptate, in impedit
+                                        quis veritatis. Magnam nemo repellat voluptas enim in. Et quia quis similique
+                                        itaque ut perferendis omnis animi architecto.
+                                        Corporis minima rem placeat maiores ad, dolorem cupiditate ab? Asperiores
+                                        recusandae error labore nesciunt optio quos fugit perspiciatis velit. Nam quia
+                                        asperiores atque corporis incidunt voluptatibus nobis itaque nostrum in!
+                                        Suscipit nihil repudiandae placeat tempora! Sunt voluptatem aliquid autem,
+                                        veritatis tempora exercitationem officiis, reprehenderit minus ab voluptate
+                                        voluptatibus, dignissimos consequatur dolorum ut corrupti iste quis ipsa
+                                        eligendi nesciunt impedit! Quia?
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="footer">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-4 m-12 c-12">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="./assets/imgs/logo.png" alt="logo" srcset="">
+                            </a>
+                        </div>
+                        <div class="footer-text">
+                            <p>Chúng tôi mong muốn Tea House sẽ trở thành “Nhà Trà",
+                                nơi mọi người xích lại gần nhau và tìm thấy niềm vui,
+                                sự sẻ chia thân tình bên những tách cà phê đượm hương, chất lượng.
+                            </p>
+                        </div>
+                        <div class="list-social">
+                            <a href="#">
+                                <i class="icon-green fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icon-green fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icon-green fa-brands fa-pinterest-p"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icon-green fa-brands fa-google-plus-g"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icon-green fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="footer-title">
+                            <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                        </div>
+                        <div class="adress mb-30">
+                            <i class="icon-green fa-solid fa-location-dot"></i>
+                            <span class="footer-text">
+                                Địa chỉ: Tâng 6 toà nhà Ladeco, 266 Đội Cấn, phường Liễu Giai, Hà Nội, Vietnam
+                            </span>
+                        </div>
+                        <div class="hotline">
+                            <i class="icon-green fa-solid fa-phone"></i>
+                            <span class="footer-text">
+                                Hotline đặt bàn: <span><a href="tel:1900 6750">1900 6750</a></span> <br>
+                                Hotline giao hàng: <span><a href="tel:1900 6750">1900 6750</a></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="footer-title">
+                            <h3>ĐĂNG KÝ NHẬN KHUYẾN MÃI</h3>
+                        </div>
+                        <span class="footer-text ">
+                            Đừng bỏ lỡ những sản phẩm và chương trình khuyến mãi hấp dẫn
+                        </span>
+                        <div class="subscribe mt-40">
+                            <input type="text" class="subscribe-input-email" placeholder="Email của bạn">
+                            <button class="subscribe-btn">ĐĂNG KÝ</button>
+                        </div>
+                    </div>
+                    <div class="col l-12 m-12 c-12">
+                        <div class="border-footer"></div>
+                    </div>
+                    <div class="col l-12 m-12 c-12">
+                        <div class="footer-copyright">
+                            <span>© Bản quyền thuộc về Cafein Team</span>
+                            <span class="hide-on-mobile"> | </span>
+                            <span>Cung cấp bởi <a href="#">Sapo</a></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- back to top -->
+    <div id="back-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

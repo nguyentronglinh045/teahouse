@@ -73,7 +73,7 @@ const listProductSmoothies = [
         price: 40000,
         image: './assets/imgs/sm4.jpg',
     },
-    
+
 ];
 const listProductCake = [
     {
@@ -100,13 +100,13 @@ const listProductCake = [
         price: 40000,
         image: './assets/imgs/cake20.jpg',
     },
-    
+
 ];
 const userCart = JSON.parse(localStorage.getItem('userCart')) || [];
 const cartList = document.querySelector(".cart-list")
 renderCart()
 // mảng bao gồm tất cả sp
-const allProducts = [...listProductTea,...listProductSmoothies,...listProductCake]
+const allProducts = [...listProductTea, ...listProductSmoothies, ...listProductCake]
 // render sp ra UI
 function renderProduct(listProduct) {
     const item = listProduct.map(product => {
@@ -157,7 +157,7 @@ function findProductWithId(productId, arr) {
             //update lại số lượng sp
             renderQuantityProduct()
             renderCart() //render lại giỏ hàng
-            
+
         }
     }
 }
@@ -208,10 +208,10 @@ function renderCart() {
 checkEmptyCart()
 // kiểm tra giỏ hàng có trống hay không
 function checkEmptyCart() {
-    if(userCart.length == 0){
+    if (userCart.length == 0) {
         document.querySelector('.cart-empty').style.display = "block"
         document.querySelector('.header__cart-list-item').style.display = "none"
-    }else{
+    } else {
         document.querySelector('.cart-empty').style.display = "none"
         document.querySelector('.header__cart-list-item').style.display = ""
     }
@@ -267,7 +267,7 @@ function getAmount(itemId, value) {
             item['quantity'] = value;
             // totalCart();
             renderTotal()
-            
+
             return
         }
     }
@@ -281,14 +281,14 @@ function totalCart() {
     // console.log('Tong Tien: ' + total);
     return total
 }
-function renderTotal(){
-    document.querySelector('.total-pay') .innerText = totalCart()+ 'đ'
+function renderTotal() {
+    document.querySelector('.total-pay').innerText = totalCart() + 'đ'
 }
 function renderQuantityProduct() {
     document.querySelector('.header__cart-notice').innerText = userCart.length
     document.querySelector('.header__cart-notice-mobile').innerText = userCart.length
 }
-function updateLocalStorage(){
+function updateLocalStorage() {
     localStorage.setItem('userCart', JSON.stringify(userCart))
 }
 
@@ -297,7 +297,7 @@ const productTypesList = document.querySelector('.product-type__list')
 const productTypes = productTypesList.querySelectorAll('.product-type__item')
 productTypes.forEach(productType => {
     productType.onclick = function () {
-        
+
         const typeOfProduct = this.getAttribute('productType') //lấy giá trị của attribute productType 
         productTypesList.querySelector('.product-type__item.active').classList.remove('active')
         this.classList.add('active')
@@ -305,14 +305,31 @@ productTypes.forEach(productType => {
         if (typeOfProduct === 'tea' || typeOfProduct === 'hotTea') {
             renderProduct(listProductTea)
             getProductById()
-        } else if (typeOfProduct === 'smoothies' ){
+        } else if (typeOfProduct === 'smoothies') {
             renderProduct(listProductSmoothies)
             getProductById()
-        }else if(typeOfProduct === 'cake'){
+        } else if (typeOfProduct === 'cake') {
             renderProduct(listProductCake)
             getProductById()
         }
         // có thể thêm 
     }
-    
+
 });
+
+// back to top button
+let backTopBtn = document.querySelector('#back-top')
+window.onscroll = function() {backToTop()};
+function backToTop() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backTopBtn.style = "transform: translateY(0px);";
+
+    } else {
+        backTopBtn.style = "transform: translateY(100px); ";
+    }
+}
+
+backTopBtn.onclick = function () {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
